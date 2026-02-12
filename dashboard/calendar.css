@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eef1f5;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Filter section */
+.filter-form {
+    margin-bottom: 20px;
+}
+
+.filter-form select {
+    padding: 8px;
+}
+
+.filter-form button {
+    padding: 8px 14px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-form button:hover {
+    background: #1a252f;
+}
+
+/* Table style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #2c3e50;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:hover {
+    background: #f5f5f5;
+}
+
+/* Status colors */
+.status.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.status.approved {
+    color: green;
+    font-weight: bold;
+}
+
+.status.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #2c3e50;
+}

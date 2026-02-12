@@ -1,0 +1,67 @@
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+    padding: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background: #2c3e50;
+    color: white;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.status.pending {
+    color: orange;
+}
+
+.status.approved {
+    color: green;
+}
+
+.status.rejected {
+    color: red;
+}
+
+.cancel-btn {
+    background: #c0392b;
+    color: white;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.cancel-btn:hover {
+    background: #922b21;
+}
+
+.back {
+    text-decoration: none;
+    color: #2c3e50;
+}

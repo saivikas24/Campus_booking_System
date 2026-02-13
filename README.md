@@ -20,5 +20,25 @@ A web app to manage booking of campus rooms and facilities with admin approval a
 - Booking filters for admin
 - Automatic completion of past bookings
 
-## Tech Stack
+->Tech Stack
 PHP, MySQL, HTML, CSS, XAMPP, PHPMailer
+
+->Installation
+
+1.Clone or download the repository.
+2.Move the project folder into XAMPP htdocs directory.
+3.Start Apache and MySQL in XAMPP.
+4.Create database campus_booking_system in Mysql.
+5.Import the provided SQL file.
+5.Update database credentials in config/db.php.
+6.Configure SMTP email in config/mail.php.
+7.Open browser and visit:
+
+Team Members:
+1.Saivikas:- Database schema creationAdmin,dashboard,Email generation,Booking system
+2.SaiEswar:- Login and register authentication page
+3.Jwala sanjana:- Mybookings dashboard and Booking calender 
+4.Sai Ganesh:- Frontend handeled html and css gathered pictures and done documentation 
+
+
+

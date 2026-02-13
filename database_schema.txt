@@ -1,0 +1,129 @@
+CREATE DATABASE IF NOT EXISTS campus_booking_system;
+
+USE campus_booking_system;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('student','faculty','admin') DEFAULT 'student',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+USE campus_booking_system;
+
+CREATE TABLE resources (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    location VARCHAR(100),
+    capacity INT,
+    description TEXT
+);
+
+INSERT INTO resources (name, location, capacity, description) VALUES
+('AB2-101 Seminar Hall', 'AB2 Building', 80, 'Seminar hall with projector'),
+('AB2-201 Meeting Room', 'AB2 Building', 10, 'Small meeting room with TV'),
+('Basketball Court', 'Sports Complex', 20, 'Outdoor basketball court'),
+('Auditorium', 'Main Block', 200, 'Large auditorium with sound system');
+
+USE campus_booking_system;
+
+CREATE TABLE bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    resource_id INT,
+    booking_date DATE,
+    start_time TIME,
+    end_time TIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+USE campus_booking_system;
+
+ALTER TABLE bookings
+ADD status ENUM('pending','approved','rejected') DEFAULT 'pending';
+UPDATE users SET role='admin' WHERE email='admin@saiu.edu';
+
+INSERT INTO users (full_name, email, password, role)
+VALUES (
+    'Admin User',
+    'admin@saiu.edu',
+    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+    'admin'
+);
+
+select * from users;
+
+USE campus_booking_system;
+
+DELETE FROM users WHERE email='admin@saiu.edu';
+
+UPDATE users
+SET role='admin'
+WHERE email='admin@saiu.edu';
+
+USE campus_booking_system;
+
+SELECT email, role FROM users;
+UPDATE users
+SET role = 'admin'
+WHERE email = 'admin@saiu.edu';
+
+UPDATE users
+SET role = 'student'
+WHERE email = 'a.saivikas18@gmail.com';
+
+SELECT email, role FROM users;
+
+UPDATE resources
+SET image_url='ab2_101.jpg'
+WHERE name='AB2-101 Seminar Hall';
+
+UPDATE resources
+SET image_url='ab2_201.jpg'
+WHERE name='AB2-201 Meeting Room';
+
+SELECT id, name, image_url FROM resources;
+
+USE campus_booking_system;
+
+ALTER TABLE resources
+ADD image_url VARCHAR(255);
+
+UPDATE resources
+SET image_url='ab2_101.jpg'
+WHERE name='AB2-101 Seminar Hall';
+
+UPDATE resources
+SET image_url='ab2_201.jpg'
+WHERE name='AB2-201 Meeting Room';
+
+UPDATE resources
+SET image_url='auditorium.jpg'
+WHERE name='Auditorium';
+
+DESCRIBE resources;
+SELECT id, name FROM resources;
+UPDATE resources SET image_url='ab2_101.jpg' WHERE id=1;
+UPDATE resources SET image_url='ab2_201.jpg' WHERE id=2;
+UPDATE resources SET image_url='basketballcourt.jpg' WHERE id=3;
+UPDATE resources SET image_url='auditorium.jpg' WHERE id=4;
+SELECT id, name, image_url FROM resources;
+
+UPDATE bookings SET status='cancelled';
+ALTER TABLE bookings
+MODIFY status ENUM(
+    'pending',
+    'approved',
+    'rejected',
+    'cancelled',
+    'completed'
+) DEFAULT 'pending';
+
+ALTER TABLE bookings ADD purpose TEXT;
+
+
+select * from users;
+select * from bookings
+
